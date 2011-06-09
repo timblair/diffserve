@@ -30,6 +30,7 @@ module DiffServe
       line.gsub!(/\"/n, '&quot;')
       line.gsub!(/>/n,  '&gt;')
       line.gsub!(/</n,  '&lt;')
+      line.gsub!(/\t/,  '    ')
       line.gsub!(/ /,   "&nbsp;")
       line.gsub!(/\\0/, "<span class='darker'>")
       line.gsub!(/\\1/, "</span>")
