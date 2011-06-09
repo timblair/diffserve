@@ -6,7 +6,9 @@ module DiffServe
     end
     
     def headerline(line)
-      row :header, line
+      if line.start_with?('---')
+        row :header, line.gsub(/^--- [a-z][\\\/]/, '')
+      end
     end
 
     def unmodline(line)
