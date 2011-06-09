@@ -1,6 +1,8 @@
 require 'sinatra/base'
+require 'diff-display'
 require 'diffserve/repository'
 require 'diffserve/command'
+require 'diffserve/renderer'
 
 module DiffServe
   class Server < Sinatra::Base
@@ -17,8 +19,17 @@ module DiffServe
 
     get "/" do
       repo = DiffServe::Repository.locate
-      out = "<h2>Untracked</h2><pre>#{h repo.untracked.result}</pre>"
-      out << "<h2>Diff</h2><pre>#{h repo.diff.result}</pre>"
+      unified = Diff::Display::Unified.new(repo.diff.result)
+      out = <<-EOS
+        <style>
+          .code   { font-family: monospace; }
+          .header { font-weight: bold; }
+          .insert { background-color: #CFC; }
+          .delete { background-color: #FCC; }
+        </style>
+      EOS
+      out << "<h2>Untracked</h2><pre>#{h repo.untracked.result}</pre>"
+      out << "<h2>Diff</h2><table>" + unified.render(DiffServe::Renderer.new) + "</table>"
       out
     end
 
