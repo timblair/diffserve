@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__) + '/../lib')
+begin
+  require 'vegas'
+rescue LoadError
+  require 'rubygems'
+  require 'vegas'
+end
+require 'diffserve/server'
+
+Vegas::Runner.new(DiffServe::Server, 'diff-serve') do |runner, opts, app|
+
+end
+

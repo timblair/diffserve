@@ -1,3 +1,2 @@
-module Diffserve
-  # Your code goes here...
+module DiffServe
 end
