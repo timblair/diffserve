@@ -25,5 +25,9 @@ module DiffServe
       DiffServe::Command.run(self, 'diff')
     end
 
+    def untracked
+      DiffServe::Command.run(self, 'ls-files', %w{ --others --exclude=standard })
+    end
+
   end
 end

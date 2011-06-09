@@ -11,9 +11,15 @@ module DiffServe
     set :public, "#{dir}/server/public"
     set :static, true
 
+    helpers do
+      alias_method :h, :escape_html
+    end
+
     get "/" do
-      content_type 'text/plain'
-      DiffServe::Repository.locate.diff.result
+      repo = DiffServe::Repository.locate
+      out = "<h2>Untracked</h2><pre>#{h repo.untracked.result}</pre>"
+      out << "<h2>Diff</h2><pre>#{h repo.diff.result}</pre>"
+      out
     end
 
   end
