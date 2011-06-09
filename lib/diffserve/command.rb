@@ -22,7 +22,7 @@ module DiffServe
     end
 
     def escaped_option(o)
-      return nil if o.to_s = ''
+      return nil if o.to_s == ''
       %Q{"#{o.to_s.gsub('\'', '\'\\\'\'')}"}
     end
 
