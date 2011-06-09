@@ -22,14 +22,16 @@ module DiffServe
       unified = Diff::Display::Unified.new(repo.diff.result)
       out = <<-EOS
         <style>
-          .code   { font-family: monospace; }
-          .header { font-weight: bold; }
-          .insert { background-color: #CFC; }
-          .delete { background-color: #FCC; }
+          *         { font-family: monospace; }
+          td        { white-space: nowrap; }
+          td.header { font-weight: bold; font-size: 150%; padding: 1.5em 0 1em; }
+          td.insert { background-color: #CFC; }
+          td.delete { background-color: #FCC; }
+          td.ln     { padding: 0 0.3em; font-family: monospace; color: #999; }
         </style>
       EOS
-      out << "<h2>Untracked</h2><pre>#{h repo.untracked.result}</pre>"
-      out << "<h2>Diff</h2><table>" + unified.render(DiffServe::Renderer.new) + "</table>"
+      out << "<h1>" + repo.path + "</h1>"
+      out << "<table>" + unified.render(DiffServe::Renderer.new) + "</table>"
       out
     end
 
