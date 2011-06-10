@@ -1,0 +1,21 @@
+html { background:#efefef; font-family:Arial, Verdana, sans-serif; font-size:13px; }
+body { padding:0; margin:0; }
+
+#main { padding:10px 5%; background:#fff; overflow:hidden; }
+#main h1 { margin:10px 0 20px; font-size:190%; font-weight:bold; color:#ce1212;}
+#main h2 { margin:10px 0; font-size:130%;}
+#main table { width:100%; margin:10px 0;}
+#main table tr td, #main table tr th { border:1px solid #ccc; padding:6px;}
+#main table tr th { background:#efefef; color:#888; font-size:80%; font-weight:bold;}
+#main table tr td.no-data { text-align:center; padding:40px 0; color:#999; font-style:italic; font-size:130%;}
+#main a { color:#111;}
+#main p { margin:5px 0;}
+
+#main table tr td.code   { font-family: monospace; white-space: nowrap; }
+#main table tr td.header { font-weight: bold; font-size: 150%; }
+#main table tr td.insert { background-color: #CFC; }
+#main table tr td.delete { background-color: #FCC; }
+#main table tr td.ln     { padding: 0 0.3em; font-family: monospace; color: #999; }
+
+#footer { padding:10px 5%; background:#efefef; color:#999; font-size:85%; line-height:1.5; border-top:5px solid #ccc; padding-top:10px;}
+#footer p a { color:#999;}

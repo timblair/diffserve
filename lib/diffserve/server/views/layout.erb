@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Local diff for <%= @repo.path %></title>
+  <link href="/reset.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="/style.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="main">
+  <%= yield %>
+</div>
+
+<div id="footer">
+  <p>Powered by <a href="http://github.com/timblair/diffserve">DiffServe</a> v<%= DiffServe::VERSION %></p>
+</div>
+
+</body>
+</html>
