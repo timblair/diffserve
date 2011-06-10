@@ -1,8 +1,4 @@
 require 'sinatra/base'
-require 'diff-display'
-require 'diffserve/repository'
-require 'diffserve/command'
-require 'diffserve/renderer'
 
 module DiffServe
   class Server < Sinatra::Base

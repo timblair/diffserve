@@ -7,7 +7,7 @@ rescue LoadError
   require 'rubygems'
   require 'vegas'
 end
-require 'diffserve/server'
+require 'diffserve'
 
 Vegas::Runner.new(DiffServe::Server, 'diff-serve') do |runner, opts, app|
 
