@@ -6,8 +6,8 @@ module DiffServe
     end
     
     def headerline(line)
-      if line.start_with?('---')
-        row :header, line.gsub(/^--- [a-z][\\\/]/, '')
+      if line.start_with?('+++')
+        row :header, line.gsub(/^[\+]{3} [\w][\\\/]/, '')
       end
     end
 
