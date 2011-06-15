@@ -15,7 +15,7 @@ module DiffServe
 
     get "/" do
       @repo = DiffServe::Repository.locate
-      @unified = Diff::Display::Unified.new(@repo.diff.result)
+      @unified = Diff::Display::Unified.new(@repo.diff)
       erb :overview
     end
 
