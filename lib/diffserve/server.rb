@@ -14,9 +14,13 @@ module DiffServe
     end
 
     get "/" do
-      @repo = DiffServe::Repository.locate
-      @unified = Diff::Display::Unified.new(@repo.diff)
-      erb :overview
+      @repo = DiffServe::Git::Repository.locate
+      if @repo
+        @unified = Diff::Display::Unified.new(@repo.diff)
+        erb :overview
+      else
+        erb :error
+      end
     end
 
   end

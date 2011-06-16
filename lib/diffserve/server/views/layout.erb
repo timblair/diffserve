@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Local diff for <%= @repo.path %></title>
+  <title>Local diff for <%= @repo ? @repo.path : "Unknown" %></title>
   <link href="/reset.css" media="screen" rel="stylesheet" type="text/css">
   <link href="/style.css" media="screen" rel="stylesheet" type="text/css">
 </head>
