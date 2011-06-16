@@ -1,10 +1,11 @@
-module DiffServe
+module DiffServe::Git
   class Repository
 
     class << self
       # Searches up the file tree to locate the root directory
       # of the Git repository the given path is in.
-      def locate(path=Dir.pwd)
+      def locate(path=nil)
+        path ||= Dir.pwd rescue return nil
         return nil if path == '/'
         return self.new(path) if self.is_repo?(path)
         Repository.locate File.expand_path('..', path)
@@ -41,15 +42,15 @@ module DiffServe
     end
 
     def file_diff(file, base=nil)
-      DiffServe::Command.run(self, 'diff', [base, file].compact)
+      DiffServe::Git::Command.run(self, 'diff', [base, file].compact)
     end
 
     def untracked
-      DiffServe::Command.run(self, 'ls-files', %w{ --others --exclude=standard })
+      DiffServe::Git::Command.run(self, 'ls-files', %w{ --others --exclude=standard })
     end
 
     def status
-      DiffServe::Command.run(self, 'status', %w{ --porcelain })
+      DiffServe::Git::Command.run(self, 'status', %w{ --porcelain })
     end
 
   end

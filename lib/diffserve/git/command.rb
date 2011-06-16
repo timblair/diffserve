@@ -1,4 +1,4 @@
-module DiffServe
+module DiffServe::Git
   class Command
 
     class << self
