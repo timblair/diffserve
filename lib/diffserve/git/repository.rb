@@ -5,7 +5,7 @@ module DiffServe::Git
       # Searches up the file tree to locate the root directory
       # of the Git repository the given path is in.
       def locate(path=nil)
-        path ||= Dir.pwd rescue return nil
+        path ||= Dir.pwd rescue return
         return nil if path == '/'
         return self.new(path) if self.is_repo?(path)
         Repository.locate File.expand_path('..', path)
